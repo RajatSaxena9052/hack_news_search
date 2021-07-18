@@ -1,0 +1,121 @@
+.App {
+  text-align: center;
+  width:100%
+}
+
+#logo-title{
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+  font-style: italic;
+  text-align: left;
+  padding: 10px;
+}
+#header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 11px;
+  gap:20px;
+  background-color: orange;
+  margin-bottom: 20px;
+}
+
+#area{
+  width:250px;
+  height: 35px;
+  border:black;
+  border-radius: 20px;
+  outline: none;
+  width: 100%; 
+  text-align: center;
+}
+#area::placeholder{
+  font-size: 20px;
+  text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+color: rgba(0, 0, 0, 0.349);
+}
+
+#search-container{
+  width: 70%;
+  display: flex;
+  font-weight: bold;
+  font-size: 18px;
+  flex-direction: row;
+  display: flex;
+  gap:20px;
+
+}
+
+.posts{
+  display: block;
+  background-color:red ;
+}
+
+ .post-list {
+   margin-bottom: 20px;
+   text-align: left;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid black;
+  width: 80%;
+  font-family: Verdana,Geneva,sans-serif;
+} 
+.post-list:hover{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#content{
+display: flex;
+flex-direction: column;
+align-items: center;
+flex-wrap: wrap;
+}
+
+#subpart{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px; 
+}
+#subpart a{
+color:black;
+text-decoration: none;
+color: #828282;
+}
+
+#subpart a:hover{
+  text-decoration: underline;
+}
+
+#verySmallText{
+display: flex;
+flex-direction: row;
+gap: 20px;
+align-items: center;
+color: #828282;
+
+}
+.bi::before {
+  display: inline-block;
+  content: "";
+  vertical-align: -.125em;
+  background-image: url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='%23333' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' d='M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z' clip-rule='evenodd'/></svg>");
+  background-repeat: no-repeat;
+  background-size: 1rem 1rem;
+}
+
+
+@media only screen and (max-width:700px){
+  #verySmallText{
+    gap: 5px;
+    align-items: center;
+    } 
+
+    #area{
+      height:34px;
+      padding-left: 40px;
+      padding-right:80px;
+    }
+}
