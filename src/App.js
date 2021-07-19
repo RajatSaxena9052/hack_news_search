@@ -1,16 +1,23 @@
 import React from 'react';
 import './App.css';
-import Post from "./components/ post"
+import Post from "./components/ post";
+import { BounceLoader } from "react-spinners";
+
+
 
 class App extends React.Component {
   constructor(props) {
     super(props)
+
     this.state = {
       text: "",
-      loading: [],
+      loading: true,
+      load: [],
       final: [],
       error: ""
     }
+
+
   }
 
   hit = (event) => {
@@ -33,10 +40,10 @@ class App extends React.Component {
   }
 
   requiredData = (text) => {
-    // console.log(this.state.loading.slice(0, 7).filter(s => /'s'/.test(s.title)))
+    // console.log(this.state.load.slice(0, 7).filter(s => /'s'/.test(s.title)))
 
     this.setState({
-      final: this.state.loading.filter(items => {
+      final: this.state.load.filter(items => {
         if ((text.test(items.title) && text.test(items.by)) || text.test(items.title) || text.test(items.by) || text.test(items.url)) {
           return items
         }
@@ -62,6 +69,7 @@ class App extends React.Component {
 
   async componentDidMount() {
 
+
     let id = await fetch("https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty")
       .then(resp => resp.json())
 
@@ -69,21 +77,22 @@ class App extends React.Component {
 
       let eachData = await fetch(`https://hacker-news.firebaseio.com/v0/item/${element}.json?print=pretty`)
         .then(resp => resp.json())
-        
+
       this.setState({
-        loading: [...this.state.loading, eachData]
+        load: [...this.state.load, eachData]
       })
 
     })
+    this.setState({ loading: false })
 
   }
 
 
   render() {
-    // console.log(this.state.loading)
+    // console.log(this.state.load)
 
     return (
-      <div className="App" >
+      this.state.loading ? <BounceLoader color="orange" css="left:50%;" loading /> : <div className="App" >
 
         <div id="header">
           <div id="logo-title">
